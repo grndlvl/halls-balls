@@ -128,7 +128,7 @@ a:hover { color: var(--white); }
 .brand { display: flex; align-items: center; gap: .6rem; color: var(--green); }
 .brand-logo { height: 66px; width: auto; display: block; filter: drop-shadow(0 0 7px rgba(255,46,156,.55)); transition: filter .2s, transform .2s; }
 .brand:hover .brand-logo { transform: translateY(-1px); filter: drop-shadow(0 0 12px rgba(255,46,156,.85)); }
-@media (min-width: 861px) { .brand-logo { width: clamp(150px, 18vw, 216px); height: auto; } }
+@media (min-width: 861px) { .brand-logo { width: clamp(180px, 20vw, 260px); height: auto; } }
 @media (max-width: 860px) { .brand-logo { height: 72px; } }
 .brand-mark { color: var(--green); filter: drop-shadow(0 0 6px rgba(166,255,42,.8)); display: grid; place-items: center; }
 .brand-text {
@@ -301,7 +301,10 @@ a:hover { color: var(--white); }
   border-radius: var(--radius); padding: 1.8rem 1.6rem; transition: transform .22s, border-color .22s, box-shadow .22s;
 }
 .supply-card:hover { transform: translateY(-5px); border-color: rgba(166,255,42,.5); box-shadow: var(--shadow-glow); }
-.supply-ico { font-size: 2.4rem; display: block; margin-bottom: .8rem; }
+.supply-ico { display: block; margin-bottom: .9rem; color: var(--green); line-height: 0; }
+.supply-ico svg { width: 2.5rem; height: 2.5rem; filter: drop-shadow(0 0 6px rgba(166,255,42,.75)); }
+.supply-card:hover .supply-ico { color: var(--magenta); }
+.supply-card:hover .supply-ico svg { filter: drop-shadow(0 0 8px rgba(255,46,156,.85)); }
 .supply-card h3 { font-family: var(--font-head); font-weight: 400; font-size: 1.1rem; margin: 0 0 .6rem; color: var(--green); text-shadow: var(--glow-green); }
 .supply-card p { margin: 0; color: var(--smoke); }
 
@@ -448,8 +451,13 @@ a:hover { color: var(--white); }
 .footer-fine { margin: .4rem 0 0; font-size: .8rem; }
 
 /* ---------- Reveal animation ---------- */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.is-in { opacity: 1; transform: none; }
+/* Reveal-on-scroll is a progressive enhancement: only hide when JS is present
+   (html.js), so content stays visible if JS is disabled or fails to run. */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
