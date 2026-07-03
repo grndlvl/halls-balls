@@ -127,10 +127,9 @@ a:hover { color: var(--white); }
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
 }
 .brand { display: flex; align-items: center; gap: .6rem; color: var(--green); }
-.brand-logo { height: 66px; width: auto; display: block; filter: drop-shadow(0 0 7px rgba(255,46,156,.55)); transition: filter .2s, transform .2s; }
+.brand-logo { width: min(56vw, 230px); height: auto; display: block; filter: drop-shadow(0 0 7px rgba(255,46,156,.55)); transition: filter .2s, transform .2s; }
 .brand:hover .brand-logo { transform: translateY(-1px); filter: drop-shadow(0 0 12px rgba(255,46,156,.85)); }
-@media (min-width: 861px) { .brand-logo { width: clamp(180px, 20vw, 260px); height: auto; } }
-@media (max-width: 860px) { .brand-logo { height: 72px; } }
+@media (min-width: 861px) { .brand-logo { width: clamp(200px, 22vw, 300px); } }
 .brand-mark { color: var(--green); filter: drop-shadow(0 0 6px rgba(166,255,42,.8)); display: grid; place-items: center; }
 .brand-text {
   font-family: var(--font-head); font-weight: 400; font-size: .98rem; line-height: 1;
